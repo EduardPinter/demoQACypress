@@ -1,0 +1,24 @@
+# Cypress generated files/folders
+/cypress/videos/
+/cypress/screenshots/
+/cypress/reports/
+/cypress/fixtures/
+
+# Node.js dependencies
+/node_modules/
+
+# Cypress configuration file
+/cypress.env.json
+
+# Ignore test screenshots and videos (if generated in the integration folder)
+/cypress/integration/**/*.png
+/cypress/integration/**/*.mp4
+
+# Ignore the Cypress binary
+/node_modules/.bin/
+
+# Ignore logs
+/logs/
+
+# Ignore environment configuration file
+/.env
