@@ -5,7 +5,8 @@
         "email": "ep@gmail.com",
         "gender": "Male",
         "number": "1112223334",
-        "subjects": ["Math", "History", "Arts", "English"],
+        "dateOfBirth": "23 November,2023",
+        "subjects": ["Maths", "History", "Arts", "English"],
         "address": "LS 11a",
         "stateOne":{
             "state":"NCR",

@@ -17,6 +17,12 @@
   },
   "homepage": "https://github.com/EduardPinter/demoQACypress#readme",
   "devDependencies": {
-    "cypress": "^13.5.1"
+    "@types/lodash": "^4.14.202",
+    "cypress": "^13.5.1",
+    "cypress-file-upload": "^5.0.8"
+  },
+  "dependencies": {
+    "cypress-real-events": "^1.11.0",
+    "lodash": "^4.17.21"
   }
 }
