@@ -1,0 +1,27 @@
+{
+    "formData":{
+        "firstName": "E",
+        "lastName": "P",
+        "email": "ep@gmail.com",
+        "gender": "Male",
+        "number": "1112223334",
+        "subjects": ["Math", "History", "Arts", "English"],
+        "address": "LS 11a",
+        "stateOne":{
+            "state":"NCR",
+            "city":["Delhi", "Gurgaon", "Noida"]
+        },
+        "stateTwo":{
+            "state":"Uttar Pradesh",
+            "city":["Agra", "Lucknow", "Merrut"]
+        },
+        "stateThree":{
+            "state":"Haryana",
+            "city":["Karnal", "Panipat"]
+        },
+        "stateFour":{
+            "state":"Rajasthan",
+            "city":["Jaipur", "Jaiselmer"]
+        }
+    }
+}
