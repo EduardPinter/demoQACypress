@@ -24,5 +24,15 @@
             "state":"Rajasthan",
             "city":["Jaipur", "Jaiselmer"]
         }
+    },
+    "webTable":{
+        "firstName": "E",
+        "lastName": "P",
+        "email": "ep@gmail.com",
+        "wrongEmailOne":"epgmail.com",
+        "wrongEmailTwo":"ep@gmailcom",
+        "age": "27",
+        "salary": "13000",
+        "department": "ER"
     }
 }

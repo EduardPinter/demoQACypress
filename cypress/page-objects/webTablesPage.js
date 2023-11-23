@@ -1,3 +1,5 @@
+import { forEach } from "lodash";
+
 class WebTablesPage {
 
     constructor(){
@@ -9,8 +11,30 @@ class WebTablesPage {
         this.salaryField="#salary";
         this.departmentField="#department";
         this.submitBtn="#submit";
+        this.deleteRowBtn="span[title='Delete']";
+        this.rows="div[role='rowgroup']";
+        this.registrationForm=".modal-content";
 
     }
+
+clickAddBtn(){
+    cy.get(this.addBtn).click();
+}
+
+assertSubmittedValues(rowNum, submittedValue){
+
+            cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(0).should('have.text', submittedValue[0]);
+            cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(1).should('have.text', submittedValue[1]);
+            cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(2).should('have.text', submittedValue[2]);
+            cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(3).should('have.text', submittedValue[3]);
+            cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(4).should('have.text', submittedValue[4]);
+            cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(5).should('have.text', submittedValue[5]);
+} 
+
+assertPresenceOfFormWindow(){
+    cy.wait(2000);
+    cy.get(this.registrationForm).should('exist');
+}
 
 enterValueToField(fieldName, value){
     switch(fieldName){
@@ -35,6 +59,10 @@ enterValueToField(fieldName, value){
         default:
             throw new Error("No field with that name");
     }
+}
+
+clickSubmitBtn(){
+    cy.get(this.submitBtn).click();
 }
 }
 export const webTablesPage = new WebTablesPage();

@@ -1,6 +1,5 @@
-
 /// <reference types="Cypress" />
-import { forEach } from "lodash";
+
 import { practiseFormPage } from "../page-objects/practiseFormPage";
 const data = require("../fixtures/data.json");
 const dataArray = [data.formData.firstName + " " + data.formData.lastName, data.formData.email, data.formData.gender,data.formData.number,data.formData.dateOfBirth, data.formData.subjects[0], "Sports",data.formData.address, data.formData.stateOne.state, , data.formData.stateOne.city[0], "Homer.png"]
