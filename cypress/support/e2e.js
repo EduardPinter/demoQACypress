@@ -16,6 +16,7 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 import "cypress-real-events";
+import '@faker-js/faker';
 
 Cypress.on('uncaught:exception', (err, runnable) => { 
     return false

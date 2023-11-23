@@ -34,5 +34,13 @@
         "age": "27",
         "salary": "13000",
         "department": "ER"
+    },
+    "apiData":{
+        "validUsername": "ep",
+        "validPassword": "Test123!",
+        "messageRegNeg": "UserName and Password required.",
+        "result": "User authorization failed.",
+        "isbnOne": "9781449331818",
+        "isbnTwo": "9781593277574"
     }
 }
