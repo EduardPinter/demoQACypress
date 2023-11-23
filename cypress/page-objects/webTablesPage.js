@@ -12,6 +12,7 @@ class WebTablesPage {
         this.departmentField="#department";
         this.submitBtn="#submit";
         this.deleteRowBtn="span[title='Delete']";
+        this.editRowBtn="span[title='Edit']";
         this.rows="div[role='rowgroup']";
         this.registrationForm=".modal-content";
 
@@ -19,6 +20,10 @@ class WebTablesPage {
 
 clickAddBtn(){
     cy.get(this.addBtn).click();
+}
+
+clickEditRowBtn(row){
+    cy.get(this.editRowBtn).eq(row).click();
 }
 
 assertSubmittedValues(rowNum, submittedValue){
@@ -29,7 +34,15 @@ assertSubmittedValues(rowNum, submittedValue){
             cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(3).should('have.text', submittedValue[3]);
             cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(4).should('have.text', submittedValue[4]);
             cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(5).should('have.text', submittedValue[5]);
-} 
+}
+
+assertSingleValueCell(rowNum, cellNum, submittedValue){
+    cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(cellNum).should('have.text', submittedValue);
+}
+
+assertSingleValueCellNot(rowNum, cellNum, submittedValue){
+    cy.get(this.rows).eq(rowNum).find("div[role='gridcell']").eq(cellNum).should('not.have.text', submittedValue);
+}
 
 assertPresenceOfFormWindow(){
     cy.wait(2000);
