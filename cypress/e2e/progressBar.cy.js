@@ -24,11 +24,12 @@ describe('Progress Bar', () => {
     progressBarPage.checkProgressBarValueNumberWithTimeout(12000,100);
   })
 
-  it('Check the reset button functionality', () => {
+  it.only('Check the reset button functionality', () => {
     progressBarPage.clickStartStopButton();
-    progressBarPage.checkProgressBarValueNumberWithTimeout(12000,100);
+    progressBarPage.checkProgressBarValueNumberWithTimeout(11000,100);
+    cy.pause();
     progressBarPage.clickResetBtn();
-    //progressBarPage.checkProgressBarValueNumber(0); TODO 
+    progressBarPage.checkProgressBarValueNumberWithTimeout(2000,0);
 
   })
 })

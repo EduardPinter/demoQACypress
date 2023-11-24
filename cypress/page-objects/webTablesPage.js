@@ -1,5 +1,3 @@
-import { forEach } from "lodash";
-
 class WebTablesPage {
 
     constructor(){

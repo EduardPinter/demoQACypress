@@ -7,7 +7,7 @@ class PractiseFormPage {
         this.emailField="#userEmail"; // email field not populated but form passes through?
         this.genderRadioBtns="input[name='gender']";
         this.mobileNumberField="#userNumber";
-        this.dateOfBirth = "#dateOfBirthInput";
+        this.dateOfBirth = "#dateOfBirthInput"; // clear() crashes the page
         this.dateOfBirthPicker = ".react-datepicker__month-container";
         this.subjectsField=".subjects-auto-complete__value-container";
         this.hobbiesCheckboxes="input[type='checkbox']";
@@ -60,7 +60,15 @@ class PractiseFormPage {
         cy.get(this.stateOptions).eq(option).click();
     }
 
+    setDate(month,year,day){
+        cy.get(this.dateOfBirth).click();
+        cy.get(".react-datepicker__year-select").select(year);
+        cy.debug();
+        cy.get(".react-datepicker__month-select").select(month);
+        cy.debug();
+        cy.get(".react-datepicker__month").find(".react-datepicker__day").contains(day).click();
 
+    }
 
     pickCityOption(option){
         cy.get(this.selectCityDropdown).scrollIntoView().click();
