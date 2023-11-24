@@ -17,6 +17,7 @@
 import './commands'
 import "cypress-real-events";
 import '@faker-js/faker';
+import './bookstoreCommands';
 
 Cypress.on('uncaught:exception', (err, runnable) => { 
     return false

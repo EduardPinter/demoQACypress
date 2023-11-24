@@ -1,0 +1,63 @@
+/// <reference types="cypress" />
+
+Cypress.Commands.add('authenticate', (user) => {
+  cy.request({
+    method: 'POST',
+    url: Cypress.env("login_url"),
+    body: {
+      userName: user.username,
+      password: user.password,
+    },
+  }).then(($response) => {
+    cy.log($response.body);
+    cy.setCookie('token', $response.body.token);
+    cy.setCookie('userName', $response.body.username);
+    cy.setCookie('userID', $response.body.userId);
+    cy.setCookie('expires', $response.body.expires);
+    expect($response.status).to.eq(200);
+  });
+});
+
+Cypress.Commands.add('addBooks', (books) => {
+  cy.getCookie('token').then(($token) => {
+    const token = $token.value;
+
+    cy.getCookie('userID').then(($id) => {
+      const userId = $id.value;
+
+      cy.request({
+        method: 'POST',
+        url: Cypress.env("addBook"),
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: {
+          userId,
+          books,
+        },
+      }).then(($response) => {
+        expect($response.status).to.eq(201);
+      });
+    });
+  });
+});
+
+Cypress.Commands.add('deleteAllBooks', () => {
+  cy.getCookie('token').then(($token) => {
+    const token = $token.value;
+
+    cy.getCookie('userID').then(($id) => {
+      const userId = $id.value;
+
+      cy.request({
+        method: 'DELETE',
+        url: Cypress.env("addBook")+`?UserId=${userId}`,
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }).then(($response) => {
+        expect($response.status).to.eq(204);
+      });
+    });
+  });
+});
